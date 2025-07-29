@@ -1,0 +1,203 @@
+/* Paleta: roxo, preto, branco, amarelo para estrelas */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0a001f; /* preto roxo escuro */
+  font-family: 'Montserrat', sans-serif;
+  color: #eee;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.star-background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: transparent;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffea00; /* amarelo */
+  border-radius: 50%;
+  opacity: 0.9;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 520px;
+  margin: 60px auto 40px;
+  background: #fff; /* fundo branco */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(34, 0, 102, 0.3);
+  padding: 15px;
+  z-index: 10;
+  overflow: visible;
+  color: #220066;
+}
+
+.arrow {
+  position: fixed; /* fixa na tela */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #220066;
+  background: rgba(255, 234, 0, 0.85);
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+  user-select: none;
+  z-index: 1000;
+  box-shadow: 0 0 12px rgba(255, 234, 0, 0.6);
+}
+
+.arrow:hover {
+  background: #ccbb00;
+  color: #110044;
+}
+
+.left-arrow {
+  left: 20px; /* afastada da caixa */
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+.carousel-slide {
+  display: none;
+  position: relative;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fefefe;
+  transition: all 0.4s ease;
+  cursor: default;
+  color: #220066;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.expand-btn {
+  margin-top: 12px;
+  background: #a366ff;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.expand-btn:hover {
+  background: #d9b3ff;
+  color: #220066;
+}
+
+.expand-text {
+  max-height: 0;
+  overflow: hidden;
+  background: #5522aa;
+  color: #fff;
+  margin: 12px 20px 0 20px;
+  padding: 0 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4rem;
+  transition: max-height 0.5s ease, padding 0.4s ease;
+  user-select: text;
+}
+
+.carousel-slide.expanded {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #d9b3ffaa;
+}
+
+.carousel-slide.expanded .expand-text {
+  max-height: 150px;
+  padding: 10px 15px;
+}
+
+.text-below {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  user-select: text;
+}
+
+.text-below h2 {
+  color: #bb99ff;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+  .arrow {
+    font-size: 2rem;
+    padding: 8px 12px;
+  }
+
+  .left-arrow {
+    left: 10px;
+    top: 45%;
+  }
+
+  .right-arrow {
+    right: 10px;
+    top: 45%;
+  }
+
+  .text-below {
+    padding: 0 10px;
+    font-size: 1rem;
+  }
+}
