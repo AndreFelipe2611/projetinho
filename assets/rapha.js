@@ -61,3 +61,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializa com o primeiro slide
   showSlide(0);
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnSim = document.getElementById('btn-sim');
+  const btnNao = document.getElementById('btn-nao');
+  const container = document.querySelector('.button-container');
+
+  btnSim.addEventListener('click', () => {
+    btnSim.classList.add('clicked');
+  
+  });
+
+  function moveButton() {
+    const containerRect = container.getBoundingClientRect();
+    const btnWidth = btnNao.offsetWidth;
+    const btnHeight = btnNao.offsetHeight;
+
+    const maxX = container.clientWidth - btnWidth;
+    const maxY = container.clientHeight - btnHeight;
+
+    const randX = Math.floor(Math.random() * maxX);
+    const randY = Math.floor(Math.random() * maxY);
+
+    btnNao.style.left = `${randX}px`;
+    btnNao.style.top = `${randY}px`;
+  }
+
+  // Fugir no mouse
+  btnNao.addEventListener('mouseenter', moveButton);
+
+  // Fugir no toque (mobile)
+  btnNao.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    moveButton();
+  });
+});

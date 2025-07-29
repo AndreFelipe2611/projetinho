@@ -10,11 +10,15 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #0a001f; /* preto roxo escuro */
+  background: #0a001f; /* fundo roxo escuro */
   font-family: 'Montserrat', sans-serif;
   color: #eee;
   overflow-x: hidden;
   position: relative;
+}
+
+p {
+  text-align: center;
 }
 
 .star-background {
@@ -54,17 +58,16 @@ body, html {
   width: 90%;
   max-width: 520px;
   margin: 60px auto 40px;
-  background: #fff; /* fundo branco */
+  background: transparent; /* removido fundo branco */
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(34, 0, 102, 0.3);
   padding: 15px;
   z-index: 10;
   overflow: visible;
-  color: #220066;
+  color: #eee;
 }
 
 .arrow {
-  position: fixed; /* fixa na tela */
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   color: #220066;
@@ -86,7 +89,7 @@ body, html {
 }
 
 .left-arrow {
-  left: 20px; /* afastada da caixa */
+  left: 20px;
 }
 
 .right-arrow {
@@ -99,10 +102,10 @@ body, html {
   text-align: center;
   border-radius: 12px;
   overflow: hidden;
-  background: #fefefe;
+  background: transparent; /* <-- atualizado aqui */
   transition: all 0.4s ease;
   cursor: default;
-  color: #220066;
+  color: #eee;
 }
 
 .carousel-slide.active {
@@ -200,4 +203,45 @@ body, html {
     padding: 0 10px;
     font-size: 1rem;
   }
+}
+
+
+.button-container {
+  margin-top: 20px;
+  position: relative;
+  height: 120px;
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+.button-container button {
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+#btn-sim {
+  background-color: #007bff;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 1;
+}
+
+#btn-sim.clicked {
+  background-color: #8000ff;
+}
+
+#btn-nao {
+  background-color: #ff4d4d;
+  color: white;
+  top: 0;
+  left: 10px;
+  z-index: 2;
 }
